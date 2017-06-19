@@ -5,7 +5,8 @@ $(document).ready(function (){
     datatype: "json",
     data: {teste:"hahaha"},
     success: function(data){
-      alert(data);
+      dt = JSON.parse(data)
+      console.log(dt)
     }
   });
 })
