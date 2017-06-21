@@ -35,17 +35,23 @@ header h1{
   padding: 10px;
 }
 
-#conteiner-places{
-  padding: 10px;
+.flex-box{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#conteiner-seats{
+  padding: 10px;
+  flex-direction: column;
   background-color: #F91E32;
   border-radius: 10px;
   border: solid 5px;
   border-color: #c70515;
+  color: white;
 }
 
-.circle:hover{
+.seat-free:hover{
   cursor: pointer;
 }
