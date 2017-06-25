@@ -55,3 +55,35 @@ header h1{
 .seat-free:hover{
   cursor: pointer;
 }
+
+#buy-conteiner{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+#button-buy{
+  height: 30px;
+  width: 100px;
+  background-color: white;
+  text-align: center;
+  background-color: #3999A5;
+  border-radius: 25px;
+  border: solid 5px #3999A5;
+  text-decoration: none;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+#button-buy:hover{
+  background-color: #54b7c4;
+  border-color: #54b7c4;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+#button-buy:hover:active{
+  background-color: #2e7b85;
+  border-color: #2e7b85;
+  box-shadow: none;
+}

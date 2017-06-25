@@ -2,6 +2,7 @@ outseats = []  //arry to save the seats slecteds
 letters = ["A","B","C","D","E","F","G","H"] //auxiliary array with alphabet
 
 $(document).ready(function(){
+  setTotal();
   seats = [[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
 
   for(var i = 0; i < seats.length; i++){
@@ -57,6 +58,7 @@ function setseats(letter,seats){
           $("#"+id+" circle").attr("fill","#66ff66")  //return to green
           outseats[row][p] = false
         }
+        setTotal()
         console.log(outseats);
       })
     }else{
@@ -65,4 +67,15 @@ function setseats(letter,seats){
       "<circle cx=\"18\" cy=\"18\" r=\"15\" fill=\"#c70515\" /> </svg>")
     }
   }
+}
+
+function setTotal(){
+  var cont = 0
+  for (var i = 0; i < outseats.length; i++){
+    for(var j = 0; j < outseats[0].length; j++){
+      if(outseats[i][j]) cont++;
+    }
+  }
+
+  $("#total").html("Total: $ "+cont*10+".00");
 }
