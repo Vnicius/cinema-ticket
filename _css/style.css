@@ -89,6 +89,8 @@ header h1{
   text-decoration: none;
   color: white;
   font-family: 'Roboto', sans-serif;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .movie .times a:hover{

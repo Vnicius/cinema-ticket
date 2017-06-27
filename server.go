@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"fmt"
 	"encoding/json"
+	"./db"
 )
 
 type Stru struct{
@@ -22,6 +23,27 @@ func main(){
 		if err != nil{
 			panic(err)
 		}
+		fmt.Fprintf(w,string(js))
+		//fmt.Println(string(js))
+	})
+
+	http.HandleFunc("/movies",func (w http.ResponseWriter, r *http.Request){
+		//r.ParseForm()
+		//fmt.Println(r.Form)
+		//fmt.Println(r.FormValue("teste"))
+		movies,err := db.GetMovies()
+
+		if err != nil{
+			fmt.Println("error")
+			return
+		}
+
+		js,err := json.Marshal(movies)
+
+		if err != nil{
+			panic(err)
+		}
+
 		fmt.Fprintf(w,string(js))
 		//fmt.Println(string(js))
 	})
