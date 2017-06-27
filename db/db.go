@@ -11,6 +11,7 @@ type Time struct{
 }
 
 type Movie struct{
+  Id bson.ObjectId `json:"id"        bson:"_id,omitempty"`
   Movie_name string `json: movie_name`
   Movie_img string `json: movie_img`
   Screen string `json: screen`
@@ -34,6 +35,27 @@ func GetMovies() ([]Movie,error){
 
   if err != nil{
     return nil, err
+  }
+
+  return result, nil
+}
+
+func GetMovie(id string) (Movie,error){
+  session, err := mgo.Dial("localhost:27017")
+
+  if err != nil{
+    return Movie{},err
+  }
+  defer session.Close()
+
+  c := session.DB("cinema").C("movies")
+
+  result := Movie{}
+
+  err = c.FindId(bson.ObjectIdHex(id)).One(&result)
+
+  if err != nil{
+    return Movie{}, err
   }
 
   return result, nil

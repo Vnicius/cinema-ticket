@@ -2,6 +2,19 @@ outseats = []  //arry to save the seats slecteds
 letters = ["A","B","C","D","E","F","G","H"] //auxiliary array with alphabet
 
 $(document).ready(function(){
+  console.log(localStorage);
+  dados = {}
+  dados.id = localStorage.id
+
+  $.ajax({
+    url:"/movie-id",
+    method:"POST",
+    data:localStorage,
+    success: function(data){
+      console.log(data);
+    }
+  })
+
   setTotal();
   seats = [[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
 

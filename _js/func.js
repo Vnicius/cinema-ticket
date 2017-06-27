@@ -3,7 +3,6 @@ $(document).ready(function (){
     url:"/movies",
     success: function(data){
       dt = JSON.parse(data)
-
       modelMovies(dt)
     }
   });
@@ -13,8 +12,8 @@ function modelMovies(movies){
   movies.forEach(function(item){
     times = ""
     console.log(item);
-    item.Times.forEach(function(time){
-      times += "<a href=\"seats\">"+time.Hour+"</a>"
+    item.Times.forEach(function(time, index){
+      times += "<button onclick=\"movieSelected(\'"+item.id+"\',\'"+index+"\')\" >"+time.Hour+"</button>"
     })
 
     //console.log("onclick=\"setModalInfos(\""+item.Movie_name+"\")\"");
@@ -40,4 +39,10 @@ function setModalInfos(name, synopsis){
 
   $("#md-body").html("")
   $("#md-body").html(synopsis)
+}
+
+function movieSelected(id, timeIndex){
+  localStorage.setItem("id",id)
+  localStorage.setItem("timeIndex",timeIndex)
+  window.location.href = 'seats'
 }

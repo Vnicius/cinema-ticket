@@ -81,7 +81,7 @@ header h1{
   border: none;
 }
 
-.movie .times a{
+.movie .times button{
   background-color: #3999A5;
   border-radius: 25px;
   border: solid 5px #3999A5;
@@ -93,13 +93,13 @@ header h1{
   margin-right: 2px;
 }
 
-.movie .times a:hover{
+.movie .times button:hover{
   background-color: #54b7c4;
   border-color: #54b7c4;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-.movie .times a:hover:active{
+.movie .times button:hover:active{
   background-color: #2e7b85;
   border-color: #2e7b85;
   box-shadow: none;
