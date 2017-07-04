@@ -5,11 +5,27 @@ import (
 	"fmt"
 	"encoding/json"
 	"./db"
+	"strings"
 )
 
 type Stru struct{
 	Id string `json:"id"`
 	Nome string	`json:"nome"`
+}
+
+func matrixParse(matrix string) [][]bool{
+	splits := strings.Split(matrix[2:len(matrix)-2],"],[")
+	result := make([][]bool, len(splits))
+	for index, value := range splits{
+		for _, v := range strings.Split(value,","){
+			if v == "false"{
+				result[index] =  append(result[index], false)
+			}else{
+				result[index] =  append(result[index], true)
+			}
+		}
+	}
+	return result
 }
 
 func main(){
@@ -46,6 +62,27 @@ func main(){
 		}
 		fmt.Fprintf(w,string(js))
 		//fmt.Println(string(js))
+	})
+
+	http.HandleFunc("/buy",func (w http.ResponseWriter, r *http.Request){
+		r.ParseForm()
+		//fmt.Println(r.Form)
+		//fmt.Println(r.FormValue("id"))
+		//fmt.Println(r.Form)
+		//fmt.Println(seats)
+		//fmt.Println(matrixParse(r.FormValue("seats")))
+		//fmt.Println(seats[1:len(seats)-1])
+		ok, err := db.UpdateSeats(r.FormValue("id"), r.FormValue("hour"),r.FormValue("timeIndex"),matrixParse(r.FormValue("seats")))
+
+		if err != nil{
+			fmt.Println("error")
+			return
+		}
+		if ok{
+			fmt.Fprintf(w,"ok")
+		}else{
+			fmt.Fprintf(w,"no")
+		}
 	})
 
 	http.HandleFunc("/movies",func (w http.ResponseWriter, r *http.Request){

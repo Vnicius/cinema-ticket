@@ -3,8 +3,6 @@ letters = ["A","B","C","D","E","F","G","H"] //auxiliary array with alphabet
 
 $(document).ready(function(){
   console.log(localStorage);
-  dados = {}
-  dados.id = localStorage.id
 
   $.ajax({
     url:"/movie-id",
@@ -12,26 +10,30 @@ $(document).ready(function(){
     data:localStorage,
     success: function(data){
       console.log(data);
+      movie = JSON.parse(data)
+      console.log(data);
+      setTotal();
+      seats = movie.times[localStorage.timeIndex].seats;
+
+      for(var i = 0; i < seats.length; i++){
+        outseats[i] = Array(seats[0].length)
+        for(var j = 0; j < seats[0].length; j++){
+          outseats[i][j] = false //filling the array
+        }
+      }
+
+      setNumbers(seats[0].length)  //set the numbers of columns on the conteiner
+
+      for(var i = seats.length-1; i >= 0;i--){
+        setseats(letters[i],seats[i])  //set each row of seats
+      }
+
+      $("#numbers").attr("style","width: "+$("#seats").width()+"px; text-align: center") //ddjust in the numbers div width
     }
   })
 
-  setTotal();
-  seats = [[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
-
-  for(var i = 0; i < seats.length; i++){
-    outseats[i] = Array(seats[0].length)
-    for(var j = 0; j < seats[0].length; j++){
-      outseats[i][j] = false //filling the array
-    }
-  }
-
-  setNumbers(seats[0].length)  //set the numbers of columns on the conteiner
-
-  for(var i = seats.length-1; i >= 0;i--){
-    setseats(letters[i],seats[i])  //set each row of seats
-  }
-
-  $("#numbers").attr("style","width: "+$("#seats").width()+"px; text-align: center") //ddjust in the numbers div width
+  //setTotal();
+  //seats = [[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
 })
 
 function setNumbers(size){
@@ -91,4 +93,22 @@ function setTotal(){
   }
 
   $("#total").html("Total: $ "+cont*10+".00");
+}
+
+function buy(){
+  st = JSON.stringify(outseats)
+  $.ajax({
+    url:"/buy",
+    method:"POST",
+    data:{"id":localStorage.id,"hour":localStorage.hour,"timeIndex":localStorage.timeIndex,"seats":st},
+    success: function(data){
+      if (data === "ok"){
+        alert("OK");
+        window.location.href = '../'
+      }else{
+        alert("Error! Reload the page!")
+        location.reload()
+      }
+    }
+  })
 }
