@@ -1,5 +1,5 @@
 $(document).ready(function (){
-  //localStorage.clear()
+  //Get the movies from the dataase
   $.ajax({
     url:"/movies",
     success: function(data){
@@ -13,11 +13,12 @@ function modelMovies(movies){
   movies.forEach(function(item){
     times = ""
     console.log(item);
+    //Create the a button element for each hour
     item.times.forEach(function(time, index){
       times += "<button onclick=\"movieSelected(\'"+item.id+"\',\'"+index+"\',\'"+time.hour+"\')\" >"+time.hour+"</button>"
     })
 
-    //console.log("onclick=\"setModalInfos(\""+item.Movie_name+"\")\"");
+    //Create a element for each movie
     $("#conteiner-movies").append(
       "<div class=\"movie\">"+
 				"<button type=\"button\" onclick=\"setModalInfos(\'"+item.movie_name+"\',\'"+item.synopsis+"\')\" class=\"movie-button\" data-toggle=\"modal\" data-target=\"#myModal\">"+
@@ -34,7 +35,7 @@ function modelMovies(movies){
 }
 
 function setModalInfos(name, synopsis){
-
+  //Edit the modal with the movie informations
   $("#md-title").html("")
   $("#md-title").html(name)
 
@@ -43,6 +44,7 @@ function setModalInfos(name, synopsis){
 }
 
 function movieSelected(id, timeIndex, hour){
+  //Set the auxiliar data for the next page
   localStorage.setItem("id",id)
   localStorage.setItem("hour",hour)
   localStorage.setItem("timeIndex",timeIndex)

@@ -3,6 +3,7 @@
 	"movie_name" = "Nome",
 	"movie_img" = "Img URL",
 	"screen" = "Screen Number",
+	"synopsis" = "Synopsis",
 	"times" = [
 			{
 				"hour":"hour",
@@ -16,39 +17,291 @@
 
 ////////Data////////
 
-{
+db.movies.insertMany([{
 	"movie_name":"Fight Club",
 	"movie_img":"_img/fight-club.jpg",
 	"screen":"Screen 1",
-  "synopsis":"In this darkly comic drama, Edward Norton stars as a depressed young man (named in the credits only as \"Narrator\") who has become a small cog in the world of big business. He doesn't like his work and gets no sense of reward from it, attempting instead to drown his sorrows by putting together the \"perfect\" apartment. He can't sleep and feels alienated from the world at large; he's become so desperate to relate to others that he's taken to visiting support groups for patients with terminal diseases so that he'll have people to talk to. One day on a business flight, he discovers Tyler Durden (Brad Pitt), a charming iconoclast who sells soap. Tyler doesn't put much stock in the materialistic world, and he believes that one can learn a great deal through pain, misfortune, and chaos. Tyler cheerfully challenges his new friend to a fight. Our Narrator finds that bare-knuckle brawling makes him feel more alive than he has in years, and soon the two become friends and roommates, meeting informally to fight once a week. As more men join in, the \"fight club\" becomes an underground sensation, even though it's a closely guarded secret among the participants. (First rule: Don't talk about fight club. Second rule: Don't talk about fight club.) But as our Narrator and Tyler bond through violence, a strange situation becomes more complicated when Tyler becomes involved with Marla (Helena Bonham Carter), whom our Narrator became infatuated with when they were both crashing the support-group circuit. Based on the novel by Chuck Palahniuk, Fight Club was directed by David Fincher, who previously directed Pitt in the thriller Seven. ~ Mark Deming, Rovi",
+  "synopsis":"Aenean placerat. In vulputate urna eu arcu. Aliquam erat volutpat. Suspendisse potenti. Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere. Nullam lectus justo, vulputate eget, mollis sed, tempor sed, magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam neque. Curabitur ligula sapien, pulvinar a, vestibulum quis, facilisis vel, sapien. Nullam eget nisl. Donec vitae arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida libero nec velit. Morbi scelerisque luctus velit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin mattis lacinia justo. Vestibulum facilisis auctor urna. Aliquam in lorem sit amet leo accumsan lacinia. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Phasellus et lorem id felis nonummy placerat. Fusce dui leo, imperdiet",
 	"times":[
 			{
 				"hour":"16:00",
-				"seats":[[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
 			},
 			{
 				"hour":"18:00",
-				"seats":[[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
 			}]
-}
-
-
+},
 {
 	"movie_name":"Gravity",
 	"movie_img":"_img/gravity.jpg",
 	"screen":"Screen 2",
-  "synopsis":"In 2014/2015, bio-medical engineer Dr. Ryan Stone (Sandra Bullock) is a Mission Specialist on her first space shuttle mission, STS-157. She is on a spacewalk repairing a panel on the Hubble Space Telescope, accompanied by veteran astronaut Matt Kowalski (George Clooney), who is commanding his final expedition. Mission Control (voice of Ed Harris) suddenly instructs them to abort their spacewalk and return to the STS. Houston tells them that debris from a Russian missile strike on a defunct satellite has caused a chain reaction, destroying other satellites, and a huge debris field is heading right at them. Within a couple of minutes, they lose contact with Mission Control, though Stone and Kowalski continue to transmit in the blind, hoping that the ground crew can hear them.",
+  "synopsis":"Aenean placerat. In vulputate urna eu arcu. Aliquam erat volutpat. Suspendisse potenti. Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere. Nullam lectus justo, vulputate eget, mollis sed, tempor sed, magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam neque. Curabitur ligula sapien, pulvinar a, vestibulum quis, facilisis vel, sapien. Nullam eget nisl. Donec vitae arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida libero nec velit. Morbi scelerisque luctus velit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin mattis lacinia justo. Vestibulum facilisis auctor urna. Aliquam in lorem sit amet leo accumsan lacinia. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Phasellus et lorem id felis nonummy placerat. Fusce dui leo, imperdiet",
 	"times":[
 			{
 				"hour":"12:00",
-				"seats":[[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
 			},
 			{
 				"hour":"19:00",
-				"seats":[[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
 			},
       {
 				"hour":"21:00",
-				"seats":[[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			}]
+},
+{
+	"movie_name":"Inception",
+	"movie_img":"_img/inception.jpg",
+	"screen":"Screen 3",
+  "synopsis":"Aenean placerat. In vulputate urna eu arcu. Aliquam erat volutpat. Suspendisse potenti. Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere. Nullam lectus justo, vulputate eget, mollis sed, tempor sed, magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam neque. Curabitur ligula sapien, pulvinar a, vestibulum quis, facilisis vel, sapien. Nullam eget nisl. Donec vitae arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida libero nec velit. Morbi scelerisque luctus velit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin mattis lacinia justo. Vestibulum facilisis auctor urna. Aliquam in lorem sit amet leo accumsan lacinia. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Phasellus et lorem id felis nonummy placerat. Fusce dui leo, imperdiet",
+	"times":[
+			{
+				"hour":"13:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			},
+			{
+				"hour":"15:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			},
+      {
+				"hour":"17:30",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			}]
+},
+{
+	"movie_name":"Jurassic Park",
+	"movie_img":"_img/jurassic-park.jpg",
+	"screen":"Screen 4",
+  "synopsis":"Aenean placerat. In vulputate urna eu arcu. Aliquam erat volutpat. Suspendisse potenti. Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere. Nullam lectus justo, vulputate eget, mollis sed, tempor sed, magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam neque. Curabitur ligula sapien, pulvinar a, vestibulum quis, facilisis vel, sapien. Nullam eget nisl. Donec vitae arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida libero nec velit. Morbi scelerisque luctus velit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin mattis lacinia justo. Vestibulum facilisis auctor urna. Aliquam in lorem sit amet leo accumsan lacinia. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Phasellus et lorem id felis nonummy placerat. Fusce dui leo, imperdiet",
+	"times":[
+			{
+				"hour":"12:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			},
+			{
+				"hour":"16:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			},
+      {
+				"hour":"20:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			}]
+},
+{
+	"movie_name":"Matrix",
+	"movie_img":"_img/matrix.jpg",
+	"screen":"Screen 5",
+  "synopsis":"Aenean placerat. In vulputate urna eu arcu. Aliquam erat volutpat. Suspendisse potenti. Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere. Nullam lectus justo, vulputate eget, mollis sed, tempor sed, magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam neque. Curabitur ligula sapien, pulvinar a, vestibulum quis, facilisis vel, sapien. Nullam eget nisl. Donec vitae arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida libero nec velit. Morbi scelerisque luctus velit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin mattis lacinia justo. Vestibulum facilisis auctor urna. Aliquam in lorem sit amet leo accumsan lacinia. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Phasellus et lorem id felis nonummy placerat. Fusce dui leo, imperdiet",
+	"times":[
+			{
+				"hour":"18:15",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			},
+			{
+				"hour":"21:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			}]
+},
+{
+	"movie_name":"Matrix",
+	"movie_img":"_img/matrix.jpg",
+	"screen":"Screen 6",
+  "synopsis":"Aenean placerat. In vulputate urna eu arcu. Aliquam erat volutpat. Suspendisse potenti. Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere. Nullam lectus justo, vulputate eget, mollis sed, tempor sed, magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam neque. Curabitur ligula sapien, pulvinar a, vestibulum quis, facilisis vel, sapien. Nullam eget nisl. Donec vitae arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida libero nec velit. Morbi scelerisque luctus velit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin mattis lacinia justo. Vestibulum facilisis auctor urna. Aliquam in lorem sit amet leo accumsan lacinia. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Phasellus et lorem id felis nonummy placerat. Fusce dui leo, imperdiet",
+	"times":[
+			{
+				"hour":"12:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			},
+			{
+				"hour":"19:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			},
+      {
+				"hour":"21:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
+			}]
+},
+{
+	"movie_name":"The Thing",
+	"movie_img":"_img/the-thing.jpg",
+	"screen":"Screen 7",
+  "synopsis":"Aenean placerat. In vulputate urna eu arcu. Aliquam erat volutpat. Suspendisse potenti. Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere. Nullam lectus justo, vulputate eget, mollis sed, tempor sed, magna. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam neque. Curabitur ligula sapien, pulvinar a, vestibulum quis, facilisis vel, sapien. Nullam eget nisl. Donec vitae arcu. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi gravida libero nec velit. Morbi scelerisque luctus velit. Etiam dui sem, fermentum vitae, sagittis id, malesuada in, quam. Proin mattis lacinia justo. Vestibulum facilisis auctor urna. Aliquam in lorem sit amet leo accumsan lacinia. Integer rutrum, orci vestibulum ullamcorper ultricies, lacus quam ultricies odio, vitae placerat pede sem sit amet enim. Phasellus et lorem id felis nonummy placerat. Fusce dui leo, imperdiet",
+	"times":[
+			{
+				"hour":"00:00",
+				"seats":[[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+				[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]]
 			}]
 }
+])

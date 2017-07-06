@@ -8,11 +8,7 @@ import (
 	"strings"
 )
 
-type Stru struct{
-	Id string `json:"id"`
-	Nome string	`json:"nome"`
-}
-
+//Convert the matrix in string to a bool matrix
 func matrixParse(matrix string) [][]bool{
 	splits := strings.Split(matrix[2:len(matrix)-2],"],[")
 	result := make([][]bool, len(splits))
@@ -30,24 +26,12 @@ func matrixParse(matrix string) [][]bool{
 
 func main(){
 	http.Handle("/", http.FileServer(http.Dir("./")))
-	http.HandleFunc("/teste",func (w http.ResponseWriter, r *http.Request){
-		r.ParseForm()
-		//fmt.Println(r.Form)
-		//fmt.Println(r.FormValue("teste"))
-		js,err := json.Marshal(Stru{"ID","Nome"})
-
-		if err != nil{
-			panic(err)
-		}
-		fmt.Fprintf(w,string(js))
-		//fmt.Println(string(js))
-	})
 
 	http.HandleFunc("/movie-id",func (w http.ResponseWriter, r *http.Request){
 		r.ParseForm()
 		//fmt.Println(r.Form)
 		//fmt.Println(r.FormValue("id"))
-
+		//Get a movie by id
 		movie,err := db.GetMovie(r.FormValue("id"))
 
 		if err != nil{
@@ -60,18 +44,11 @@ func main(){
 		if err != nil{
 			panic(err)
 		}
-		fmt.Fprintf(w,string(js))
-		//fmt.Println(string(js))
+		fmt.Fprintf(w,string(js))	//return the movie
 	})
 
 	http.HandleFunc("/buy",func (w http.ResponseWriter, r *http.Request){
 		r.ParseForm()
-		//fmt.Println(r.Form)
-		//fmt.Println(r.FormValue("id"))
-		//fmt.Println(r.Form)
-		//fmt.Println(seats)
-		//fmt.Println(matrixParse(r.FormValue("seats")))
-		//fmt.Println(seats[1:len(seats)-1])
 		ok, err := db.UpdateSeats(r.FormValue("id"), r.FormValue("hour"),r.FormValue("timeIndex"),matrixParse(r.FormValue("seats")))
 
 		if err != nil{
@@ -86,9 +63,7 @@ func main(){
 	})
 
 	http.HandleFunc("/movies",func (w http.ResponseWriter, r *http.Request){
-		//r.ParseForm()
-		//fmt.Println(r.Form)
-		//fmt.Println(r.FormValue("teste"))
+		//Return all the movies from the database
 		movies,err := db.GetMovies()
 
 		if err != nil{
@@ -103,7 +78,6 @@ func main(){
 		}
 
 		fmt.Fprintf(w,string(js))
-		//fmt.Println(string(js))
 	})
 
 	fmt.Println("Connected")

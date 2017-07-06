@@ -1,9 +1,9 @@
 outseats = []  //arry to save the seats slecteds
-letters = ["A","B","C","D","E","F","G","H"] //auxiliary array with alphabet
+letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"] //auxiliary array with alphabet
 
 $(document).ready(function(){
-  console.log(localStorage);
-
+  //console.log(localStorage);
+  //Get the seats states of the selected movie from the database
   $.ajax({
     url:"/movie-id",
     method:"POST",
@@ -31,12 +31,10 @@ $(document).ready(function(){
       $("#numbers").attr("style","width: "+$("#seats").width()+"px; text-align: center") //ddjust in the numbers div width
     }
   })
-
-  //setTotal();
-  //seats = [[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false],[true,false,true,true,false]]
 })
 
 function setNumbers(size){
+  //Set the numbers for seat location
   var nums = ""
   //first element only for equality the columns
   $("#numbers").append("<svg height=\"36\" width=\"36\">"+
@@ -50,7 +48,7 @@ function setNumbers(size){
 }
 
 function setseats(letter,seats){
-
+  //Set all the seats in the screen
   $("#seats").append("<div id=\""+letter+"\"></div>")  //create a new div for each row
   $("#"+letter).append("<svg height=\"36\" width=\"36\">"+
                     "<text x=\"18\" y=\"23\" fill=\"white\" text-anchor=\"middle\">"+letter+"</text></svg>")  //add the the letter of this row
@@ -85,6 +83,7 @@ function setseats(letter,seats){
 }
 
 function setTotal(){
+  //Show the total value for the purchase
   var cont = 0
   for (var i = 0; i < outseats.length; i++){
     for(var j = 0; j < outseats[0].length; j++){
@@ -92,11 +91,12 @@ function setTotal(){
     }
   }
 
-  $("#total").html("Total: $ "+cont*10+".00");
+  $("#total").html("Total: $ "+cont*10+".00");  //the default value is $10
 }
 
 function buy(){
-  st = JSON.stringify(outseats)
+  //Function to buy the selecteds seats
+  st = JSON.stringify(outseats) //convert the outseats array to JSON format in string
   $.ajax({
     url:"/buy",
     method:"POST",

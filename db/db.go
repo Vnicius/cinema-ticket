@@ -20,8 +20,11 @@ type Movie struct{
   Times []Time `json:"times"`
 }
 
+var urlDatabase = "localhost:27017"
+
 func GetMovies() ([]Movie,error){
-  session, err := mgo.Dial("localhost:27017")
+  //Get all the movies from the database
+  session, err := mgo.Dial(urlDatabase) //open a sessin in the databse url
 
   if err != nil{
     return nil,err
@@ -42,7 +45,8 @@ func GetMovies() ([]Movie,error){
 }
 
 func GetMovie(id string) (Movie,error){
-  session, err := mgo.Dial("localhost:27017")
+  //Get the movie from the databse by id
+  session, err := mgo.Dial(urlDatabase)
 
   if err != nil{
     return Movie{},err
@@ -63,7 +67,8 @@ func GetMovie(id string) (Movie,error){
 }
 
 func UpdateSeats(id, hour, timeIndex string, seats [][]bool) (bool,error){
-  session,err := mgo.Dial("localhost:27017")
+  //Update the selecteds seats
+  session,err := mgo.Dial(urlDatabase)
 
   if err != nil{
     return false,err
@@ -73,15 +78,15 @@ func UpdateSeats(id, hour, timeIndex string, seats [][]bool) (bool,error){
   c := session.DB("cinema").C("movies")
 
   result := Movie{}
-  err = c.FindId(bson.ObjectIdHex(id)).One(&result)
-  index,err := strconv.Atoi(timeIndex)
-  dbSeats := result.Times[index].Seats
-  //fmt.Println(strconv.Atoi(timeIndex))
-  //dbSeats := make([][]bool,4)
+  err = c.FindId(bson.ObjectIdHex(id)).One(&result) //get the selected movie by the id
+  index,err := strconv.Atoi(timeIndex)  //get the index of the selected time
+  dbSeats := result.Times[index].Seats  //get all the seats from the selected session
+
   if err != nil{
     return false,err
   }
 
+  //check if the selecteds seats are free. Because of the concurrence this check is necessary
   for i, value := range seats{
     for j, v := range value{
       if v && !(dbSeats[i][j]){
@@ -89,7 +94,7 @@ func UpdateSeats(id, hour, timeIndex string, seats [][]bool) (bool,error){
       }
     }
   }
-
+  //set the selected seats in the matrix
   for i, value := range seats{
     for j, v := range value{
       if v {
@@ -100,7 +105,7 @@ func UpdateSeats(id, hour, timeIndex string, seats [][]bool) (bool,error){
 
   condtion := bson.M{"_id":bson.ObjectIdHex(id), "times.hour":hour}
   change := bson.M{"$set":bson.M{"times.$.seats":dbSeats}}
-
+  //update the new seats states
   err = c.Update(condtion,change)
 
   if err != nil{
