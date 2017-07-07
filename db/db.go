@@ -1,8 +1,8 @@
 package db
 
 import(
-  //"fmt"
   "strconv"
+  "sync"
   "gopkg.in/mgo.v2"
   "gopkg.in/mgo.v2/bson")
 
@@ -20,6 +20,9 @@ type Movie struct{
   Times []Time `json:"times"`
 }
 
+type Place struct{
+  Seats [][]bool `json:"seats"`
+}
 var urlDatabase = "localhost:27017"
 
 func GetMovies() ([]Movie,error){
@@ -44,12 +47,12 @@ func GetMovies() ([]Movie,error){
   return result, nil
 }
 
-func GetMovie(id string) (Movie,error){
-  //Get the movie from the databse by id
+func GetSeats(id,timeIndex string) (Place,error){
+  //Get seats of the selected movie
   session, err := mgo.Dial(urlDatabase)
 
   if err != nil{
-    return Movie{},err
+    return Place{},err
   }
   defer session.Close()
 
@@ -58,15 +61,17 @@ func GetMovie(id string) (Movie,error){
   result := Movie{}
 
   err = c.FindId(bson.ObjectIdHex(id)).One(&result)
+  index,err := strconv.Atoi(timeIndex)  //get the index of the selected time
+  dbSeats := result.Times[index].Seats  //get all the seats from the selected session
 
   if err != nil{
-    return Movie{}, err
+    return Place{}, err
   }
 
-  return result, nil
+  return Place{dbSeats}, nil
 }
 
-func UpdateSeats(id, hour, timeIndex string, seats [][]bool) (bool,error){
+func UpdateSeats(id, hour, timeIndex string, seats [][]bool, mux *sync.Mutex) (bool,error){
   //Update the selecteds seats
   session,err := mgo.Dial(urlDatabase)
 
@@ -78,6 +83,10 @@ func UpdateSeats(id, hour, timeIndex string, seats [][]bool) (bool,error){
   c := session.DB("cinema").C("movies")
 
   result := Movie{}
+
+  mux.Lock()
+  defer mux.Unlock()
+
   err = c.FindId(bson.ObjectIdHex(id)).One(&result) //get the selected movie by the id
   index,err := strconv.Atoi(timeIndex)  //get the index of the selected time
   dbSeats := result.Times[index].Seats  //get all the seats from the selected session
@@ -111,6 +120,6 @@ func UpdateSeats(id, hour, timeIndex string, seats [][]bool) (bool,error){
   if err != nil{
     return false,err
   }
-
+  
   return true,nil
 }

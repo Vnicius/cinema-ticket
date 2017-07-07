@@ -1,19 +1,21 @@
 outseats = []  //arry to save the seats slecteds
 letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"] //auxiliary array with alphabet
 
+ID = localStorage.id
+HOUR = localStorage.hour
+TIMEINDEX = localStorage.timeIndex
+
 $(document).ready(function(){
   //console.log(localStorage);
   //Get the seats states of the selected movie from the database
   $.ajax({
-    url:"/movie-id",
+    url:"/getSeats",
     method:"POST",
-    data:localStorage,
+    data:{"id":ID,"timeIndex":TIMEINDEX},
     success: function(data){
-      console.log(data);
-      movie = JSON.parse(data)
-      console.log(data);
+      //console.log(data);
       setTotal();
-      seats = movie.times[localStorage.timeIndex].seats;
+      seats = JSON.parse(data).seats;
 
       for(var i = 0; i < seats.length; i++){
         outseats[i] = Array(seats[0].length)
@@ -100,7 +102,7 @@ function buy(){
   $.ajax({
     url:"/buy",
     method:"POST",
-    data:{"id":localStorage.id,"hour":localStorage.hour,"timeIndex":localStorage.timeIndex,"seats":st},
+    data:{"id":ID,"hour":HOUR,"timeIndex":TIMEINDEX,"seats":st},
     success: function(data){
       if (data === "ok"){
         alert("OK");

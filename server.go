@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"./db"
 	"strings"
+	"sync"
 )
 
 //Convert the matrix in string to a bool matrix
@@ -24,15 +25,17 @@ func matrixParse(matrix string) [][]bool{
 	return result
 }
 
+var mux sync.Mutex
+
 func main(){
 	http.Handle("/", http.FileServer(http.Dir("./")))
 
-	http.HandleFunc("/movie-id",func (w http.ResponseWriter, r *http.Request){
+	http.HandleFunc("/getSeats",func (w http.ResponseWriter, r *http.Request){
 		r.ParseForm()
 		//fmt.Println(r.Form)
 		//fmt.Println(r.FormValue("id"))
 		//Get a movie by id
-		movie,err := db.GetMovie(r.FormValue("id"))
+		movie,err := db.GetSeats(r.FormValue("id"),r.FormValue("timeIndex"))
 
 		if err != nil{
 			fmt.Println("error")
@@ -49,7 +52,7 @@ func main(){
 
 	http.HandleFunc("/buy",func (w http.ResponseWriter, r *http.Request){
 		r.ParseForm()
-		ok, err := db.UpdateSeats(r.FormValue("id"), r.FormValue("hour"),r.FormValue("timeIndex"),matrixParse(r.FormValue("seats")))
+		ok, err := db.UpdateSeats(r.FormValue("id"), r.FormValue("hour"),r.FormValue("timeIndex"),matrixParse(r.FormValue("seats")),&mux)
 
 		if err != nil{
 			fmt.Println("error")
