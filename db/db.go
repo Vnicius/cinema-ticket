@@ -120,6 +120,6 @@ func UpdateSeats(id, hour, timeIndex string, seats [][]bool, mux *sync.Mutex) (b
   if err != nil{
     return false,err
   }
-  
+
   return true,nil
 }

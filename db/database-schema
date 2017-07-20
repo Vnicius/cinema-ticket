@@ -16,7 +16,7 @@
 }
 
 ////////Data////////
-
+use cinema
 db.movies.insertMany([{
 	"movie_name":"Fight Club",
 	"movie_img":"_img/fight-club.jpg",
