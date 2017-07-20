@@ -34,7 +34,3 @@ go run server.go
 ```
 
 ### 3. Open the browser and access `localhost:8000`
-
-//*TODO:*
-
- Script to install the dependences
