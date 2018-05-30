@@ -1,6 +1,9 @@
 # Cinema Ticket
 This project is a example of a site to buy tickets in a cinema, just for study.
 
+| ![home](./_img/cinema.png) | ![seates](./_img/seats.png) |
+|------|-----|
+
 ## Dependences
   * [Go 1.8](https://golang.org/doc/go1.8)
   * [mgo.v2](http://gopkg.in/mgo.v2)
